@@ -81,8 +81,6 @@ class ConversionFunctions(unittest.TestCase):
 
     def test_conversionUnits(self):
         '''Conversions not possible between these two units'''
-        # arguments = ['ml', 'C', '500']
-        # self.assertRaises(conversion_refactored.ConversionNotPossible, conversion_refactored.convert, *arguments)
         fromUnit = 'ml'
         toUnit = 'C'
         value = 500
