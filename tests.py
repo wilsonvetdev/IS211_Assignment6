@@ -80,7 +80,7 @@ class ConversionFunctions(unittest.TestCase):
         self.assertAlmostEqual(actual, expected, places=2, msg="Meter to miles conversion failed")
 
     def test_conversionUnits(self):
-        '''Conversions not possible between these two units'''
+        '''Conversions not possible between distance and temperature units'''
         fromUnit = 'ml'
         toUnit = 'C'
         value = 500
