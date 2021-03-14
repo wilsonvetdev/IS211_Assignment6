@@ -42,6 +42,15 @@ class ConversionFunctions(unittest.TestCase):
         actual = conversion_refactored.convert(fromUnit, toUnit, value)
 
         self.assertAlmostEqual(actual, expected, places=2, msg="Celsius to Fahrenheit conversion failed")
+
+    def test_convertKtoC(self):
+        fromUnit = 'K'
+        toUnit = 'C'
+        value = 500
+        expected = 773.15
+        actual = conversion_refactored.convert(fromUnit, toUnit, value)
+
+        self.assertAlmostEqual(actual, expected, places=2, msg="Celsius to Fahrenheit conversion failed")
     
     def test_convertMtoY(self):
         fromUnit = 'm'
@@ -51,13 +60,29 @@ class ConversionFunctions(unittest.TestCase):
         actual = conversion_refactored.convert(fromUnit, toUnit, value)
 
         self.assertAlmostEqual(actual, expected, places = 4, msg="Meter to yard conversion failed")
+    
+    def test_convertYardToMeter(self):
+        fromUnit = 'yr'
+        toUnit = 'm'
+        value = 20
+        expected = 18.2881
+        actual = conversion_refactored.convert(fromUnit, toUnit, value)
 
-    def test_convertMeterToYard(self):
-        meter = 5
-        expected = 5.4680 
-        actual = conversion.convertMeterToYard(meter)
+        self.assertAlmostEqual(actual, expected, places=2, msg="Yard to meter conversion failed")
+    
+    def test_convertMeterToMiles(self):
+        fromUnit = 'm'
+        toUnit = 'ml'
+        value = 2000
+        expected = 1.242742
+        actual = conversion_refactored.convert(fromUnit, toUnit, value)
 
-        self.assertAlmostEqual(actual, expected, places=4, msg="Meter to yard conversion failed")
+        self.assertAlmostEqual(actual, expected, places=2, msg="Meter to miles conversion failed")
+
+    def test_conversionUnits(self):
+        '''Conversions not possible between these two units'''
+        arguments = ['ml', 'C', '500']
+        self.assertRaises(conversion_refactored.ConversionNotPossible, conversion_refactored.convert, *arguments)
 
 
 if __name__ == '__main__':
