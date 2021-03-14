@@ -11,7 +11,10 @@ def convert(fromUnit, toUnit, value):
     distance_array = ["yr", "m", "ml"]
     temp_array = ["C", "K", "F"]
 
-
+    if fromUnit in distance_array and toUnit in temp_array:
+        raise ConversionNotPossible
+    if fromUnit in temp_array and toUnit in distance_array:
+        raise ConversionNotPossible
 
     if fromUnit == "C" and toUnit == "K":
         # do Celsius to Kelvin
