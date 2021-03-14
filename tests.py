@@ -46,8 +46,8 @@ class ConversionFunctions(unittest.TestCase):
     def test_convertKtoC(self):
         fromUnit = 'K'
         toUnit = 'C'
-        value = 500
-        expected = 773.15
+        value = 773.15
+        expected = 500
         actual = conversion_refactored.convert(fromUnit, toUnit, value)
 
         self.assertAlmostEqual(actual, expected, places=2, msg="Celsius to Fahrenheit conversion failed")

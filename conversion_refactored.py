@@ -18,21 +18,27 @@ def convert(fromUnit, toUnit, value):
 
     if fromUnit == "C" and toUnit == "K":
         # do Celsius to Kelvin
-        return conversion.convertCelsiusToKelvin(value)
+        kelvin = 273.15 + value
+        return kelvin
     elif fromUnit == "C" and toUnit == "F":
         # do Celsius to Fahrenheit
-        return conversion.convertCelsiusToFahrenheit(value)
+        fahrenheit = (value * 1.8) + 32
+        return fahrenheit
     elif fromUnit == "K" and toUnit == "C":
-        return conversion.convertCelsiusToKelvin(value)
+        celsius = value - 273.15
+        return celsius
     elif fromUnit == "K" and toUnit == "F":
-        return conversion.convertKelvinToFahrenheit(value)
+        celsius = value - 273.15
+        fahrenheit = (celsius * 1.8) + 32
+        return fahrenheit
     elif fromUnit == "m" and toUnit == "yr":
         # do meter to yards conversion
-        return conversion.convertMeterToYard(value)
+        yard = value * 1.09361
+        return yard
     elif fromUnit == "yr" and toUnit == "m":
-        # do meter to yards conversion
+        # do yards to meter conversion
         return value / 1.09361
     elif fromUnit == "m" and toUnit == "ml":
-        # do meter to yards conversion
+        # do mile to meter conversion
         return value * 0.000621371192
 
